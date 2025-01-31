@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>BANK TERM-DEPOSIT Subscription</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+  <style>
+    .content-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+    }
+    .login {
+      width: 60%;
+    }
+    .info-box {
+      width: 85%;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 10px;
+      font-family: 'Arimo', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-container">
+    <div class="login">
+      <h1>Bank Term Deposit Subscription Predictor</h1>
+
+      <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="duration" placeholder="duration" required="required" /><br>
+        <input type="text" name="euribor3m" placeholder="euribor3m" required="required" /><br>
+        <input type="text" name="age" placeholder="age" required="required" /><br>
+        <input type="text" name="nr.employed" placeholder="nr.employed" required="required" /><br>
+        <input type="text" name="job" placeholder="job" required="required" /><br>
+        <input type="text" name="day_of_week" placeholder="day_of_week" required="required" /><br>
+        <input type="text" name="education" placeholder="education" required="required" /><br>
+        <input type="text" name="campaign" placeholder="campaign" required="required" /><br>
+        <input type="text" name="cons.price.idx" placeholder="cons.price.idx" required="required" /><br>
+        <input type="text" name="cons.conf.idx" placeholder="cons.conf.idx" required="required" /><br>
+        <input type="text" name="emp.var.rate" placeholder="emp.var.rate" required="required" /><br>
+        <input type="text" name="housing" placeholder="housing" required="required" /><br>
+        <input type="text" name="month" placeholder="month" required="required" /><br>
+        <input type="text" name="loan" placeholder="loan" required="required" /><br>
+        <input type="text" name="marital" placeholder="marital" required="required" /><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        
+    </form>
+  </p>{{prediction_text}}</p>
+    </div>
+
+
+    <div class="info-box">
+      <h2>Additional Information</h2>
+      <p>This tool predicts bank term-deposit subscriptions based on various parameters like duration, age, employment status, 
+        and more. Ensure you provide accurate data for better predictions.</p>
+      </p>## About the parameters:</p>
+    </p>1-age(numeric)</p>
+    </p>2-job : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed',
+    'services','student','technician','unemployed','unknown')</p>
+    </p>3-marital : marital status (categorical: 'divorced','married','single',
+                   'unknown'; note: 'divorced' means divorced or widowed)</p>
+    </p>4-education (categorical: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course',
+            'university.degree','unknown')</p>
+    </p>5-housing: has housing loan? (categorical: 'no','yes','unknown')</p>
+    </p>6-loan: has personal loan? (categorical: 'no','yes','unknown')</p>
+    </p>7-month: last contact month of year (categorical: 'jan', 'feb', 'mar', …, 'nov', 'dec')</p>
+    </p>8-day_of_week: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')</p>
+    </p>9-duration: last contact duration, in seconds (numeric).</p>
+    </p>10-campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)</p>
+    </p>11-emp.var.rate: employment variation rate - quarterly indicator (numeric)</p>
+    </p>12-cons.price.idx: consumer price index - monthly indicator (numeric)</p>
+    </p>13-cons.conf.idx: consumer confidence index - monthly indicator (numeric)</p>
+    </p>14-euribor3m: euribor 3 month rate - daily indicator (numeric)</p>
+    </p>15-nr.employed: number of employees - quarterly indicator (numeric)</p>
+        ------
+    </p>Output variable (desired target):</p>
+  </p>y-has the client subscribed a term deposit? (binary: 'yes','no')</p>
+      <p>Note: All fields are mandatory.</p>
+    </div>
+  </div>
+</body>
+
+</html>
